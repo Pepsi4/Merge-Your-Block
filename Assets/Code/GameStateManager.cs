@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-    // private GameState _currentState;
+    public GameState CurrentState { get; private set; }
 
     public static Action<GameState> OnGameStateChanged;
 
     public void UpdateGameState(GameState gameState)
     {
-        // _currentState = gameState;
+        CurrentState = gameState;
 
         switch (gameState)
         {
@@ -27,6 +27,7 @@ public class GameStateManager : MonoBehaviour
             default: throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);
         }
 
+        Debug.Log("<color=orange> Current game state: " + CurrentState + " </color>");
         OnGameStateChanged?.Invoke(gameState);
     }
 

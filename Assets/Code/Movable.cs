@@ -13,7 +13,6 @@ public class Movable : MonoBehaviour, IMovable
     public void Consturct(MovableConfig gameConfig)
     {
         _movableConfig = gameConfig;
-        Init();
     }
 
     public void Move()
@@ -24,6 +23,11 @@ public class Movable : MonoBehaviour, IMovable
     public void Stop()
     {
         _moveTween?.Kill();
+    }
+
+    private void Start()
+    {
+        Init();
     }
 
     private void Init()

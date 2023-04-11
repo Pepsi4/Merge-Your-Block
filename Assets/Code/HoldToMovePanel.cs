@@ -17,7 +17,6 @@ public class HoldToMovePanel : MonoBehaviour
 
     private void MoveCursor()
     {
-
         _cursor.transform.DOLocalMoveX(CURSOR_MIN_POS_X, CURSOR_SPEED).SetSpeedBased(true).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutBack);
     }
 
@@ -33,10 +32,22 @@ public class HoldToMovePanel : MonoBehaviour
 
     private void Update()
     {
+#if UNITY_EDITOR
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnInputHandle();
+        }
+#endif
+
         if (Input.touchCount > 0)
         {
-            Hide();
-            Play();
+            OnInputHandle();
         }
+    }
+
+    private void OnInputHandle()
+    {
+        Hide();
+        Play();
     }
 }
