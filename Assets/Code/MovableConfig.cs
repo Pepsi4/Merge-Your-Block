@@ -4,6 +4,6 @@ using System;
 [Serializable]
 public class MovableConfig
 {
-    public float MovableSpeed;
-    public float MovableEndPointZ = float.MinValue;
+    public float Speed = 2f;
+    public float EndPointZ = float.MinValue;
 }

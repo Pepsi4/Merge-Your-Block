@@ -5,6 +5,7 @@ using Zenject;
 public class GameConfigInstaller : ScriptableObjectInstaller<GameConfigInstaller>
 {
     [SerializeField] private MovableConfig _movableConfig;
+    //[SerializeField] private StackableConfig _stackableConfig;
 
     public override void InstallBindings()
     {

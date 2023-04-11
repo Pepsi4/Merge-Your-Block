@@ -10,7 +10,7 @@ public class Movable : MonoBehaviour, IMovable
     private float _speed;
 
     [Inject]
-    public void Consturct(MovableConfig gameConfig)
+    private void Construct(MovableConfig gameConfig)
     {
         _movableConfig = gameConfig;
     }
@@ -18,6 +18,7 @@ public class Movable : MonoBehaviour, IMovable
     public void Move()
     {
         _moveTween = this.transform.DOMoveZ(_endPointZ, _speed).SetSpeedBased(true);
+        _moveTween.Play();
     }
 
     public void Stop()
@@ -32,8 +33,8 @@ public class Movable : MonoBehaviour, IMovable
 
     private void Init()
     {
-        _endPointZ = _movableConfig.MovableEndPointZ;
-        _speed = _movableConfig.MovableSpeed;
+        _endPointZ = _movableConfig.EndPointZ;
+        _speed = _movableConfig.Speed;
     }
 
     private void OnEnable()

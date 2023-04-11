@@ -779,6 +779,7 @@ GameObject:
   - component: {fileID: 362227222}
   - component: {fileID: 362227221}
   - component: {fileID: 362227224}
+  - component: {fileID: 362227225}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -885,6 +886,22 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &362227225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362227220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d053d98cffdb4da45b7a1e36143b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 687943915}
+  _speed: 2
+  _followMultiplierX: 0.4
+  _offset: {x: 2, y: 0, z: 0}
 --- !u!1 &448964210 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3481367610352654943, guid: 085ad57d0f0d5924f8ec77fd5eeb27f9,
@@ -1033,7 +1050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 317fa15608d410145a5f6a371457a8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameStateManager: {fileID: 0}
 --- !u!4 &801713742
 Transform:
   m_ObjectHideFlags: 0
@@ -1752,7 +1768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _joystick: {fileID: 944484785}
-  _movingSpeed: 2.5
+  _movingSpeed: 2
 --- !u!1 &2144154520
 GameObject:
   m_ObjectHideFlags: 0

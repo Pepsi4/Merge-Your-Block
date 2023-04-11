@@ -5,8 +5,14 @@ using Zenject;
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private Joystick _joystick;
-    [SerializeField] private float _movingSpeed = 1f;
-    [Inject] private GameStateManager _gameStateManager;
+    [SerializeField] private float _movingSpeed = 2f;
+    private GameStateManager _gameStateManager;
+
+    [Inject]
+    private void Construct(GameStateManager gameStateManager)
+    {
+        _gameStateManager = gameStateManager;
+    }
 
     private void Update()
     {

@@ -3,8 +3,6 @@ using Zenject;
 
 public class GameStateManagerInstaller : MonoInstaller
 {
-    [SerializeField] private GameStateManager _gameStateManager;
-
     public override void InstallBindings()
     {
         var gameStateManagerInstance = Container.InstantiateComponentOnNewGameObject<GameStateManager>();

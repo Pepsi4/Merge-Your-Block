@@ -3,12 +3,17 @@ using DG.Tweening;
 using Zenject;
 public class HoldToMovePanel : MonoBehaviour
 {
-    [Inject]
     private GameStateManager _gameStateManager;
     [SerializeField] private RectTransform _cursor;
 
     private const float CURSOR_MIN_POS_X = -160f;
     private const float CURSOR_SPEED = 160f;
+
+    [Inject]
+    private void Construct(GameStateManager gameStateManager)
+    {
+        _gameStateManager = gameStateManager;
+    }
 
     private void Start()
     {
