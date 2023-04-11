@@ -1,13 +1,14 @@
-using UnityEngine;
 using Zenject;
-
-public class GameStateManagerInstaller : MonoInstaller
+namespace TZ_24PLAY
 {
-    public override void InstallBindings()
+    public class GameStateManagerInstaller : MonoInstaller
     {
-        var gameStateManagerInstance = Container.InstantiateComponentOnNewGameObject<GameStateManager>();
+        public override void InstallBindings()
+        {
+            var gameStateManagerInstance = Container.InstantiateComponentOnNewGameObject<GameStateManager>();
 
-        Container.Bind<GameStateManager>().
-            FromInstance(gameStateManagerInstance).AsSingle().NonLazy();
+            Container.Bind<GameStateManager>().
+                FromInstance(gameStateManagerInstance).AsSingle().NonLazy();
+        }
     }
 }

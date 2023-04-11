@@ -1,6 +1,9 @@
-public enum GameState 
+namespace TZ_24PLAY
 {
-    WaitToStart,
-    Play,
-    Fail
+    public enum GameState
+    {
+        WaitToStart,
+        Play,
+        Fail
+    }
 }

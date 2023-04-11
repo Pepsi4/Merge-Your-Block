@@ -1,5 +1,8 @@
-public interface IMovable
+namespace TZ_24PLAY
 {
-    void Move();
-    void Stop();
+    public interface IMovable
+    {
+        void Move();
+        void Stop();
+    }
 }

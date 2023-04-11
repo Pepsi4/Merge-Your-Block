@@ -1,14 +1,16 @@
 using UnityEngine;
 using Zenject;
 
-[CreateAssetMenu(fileName = "GameConfigInstaller", menuName = "Installers/GameConfigInstaller")]
-public class GameConfigInstaller : ScriptableObjectInstaller<GameConfigInstaller>
+namespace TZ_24PLAY
 {
-    [SerializeField] private MovableConfig _movableConfig;
-    //[SerializeField] private StackableConfig _stackableConfig;
-
-    public override void InstallBindings()
+    [CreateAssetMenu(fileName = "GameConfigInstaller", menuName = "Installers/GameConfigInstaller")]
+    public class GameConfigInstaller : ScriptableObjectInstaller<GameConfigInstaller>
     {
-        Container.Bind<MovableConfig>().FromInstance(_movableConfig).NonLazy();
+        [SerializeField] private MovableConfig _movableConfig;
+
+        public override void InstallBindings()
+        {
+            Container.Bind<MovableConfig>().FromInstance(_movableConfig).NonLazy();
+        }
     }
 }

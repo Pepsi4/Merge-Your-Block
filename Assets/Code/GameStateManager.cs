@@ -1,38 +1,24 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-public class GameStateManager : MonoBehaviour
+namespace TZ_24PLAY
 {
-    public GameState CurrentState { get; private set; }
-
-    public static Action<GameState> OnGameStateChanged;
-
-    public void UpdateGameState(GameState gameState)
+    public class GameStateManager : MonoBehaviour
     {
-        CurrentState = gameState;
+        public GameState CurrentState { get; private set; }
 
-        switch (gameState)
+        public static Action<GameState> OnGameStateChanged;
+
+        public void UpdateGameState(GameState gameState)
         {
-            case GameState.WaitToStart:
-                break;
+            CurrentState = gameState;
 
-            case GameState.Play:
-                break;
-
-            case GameState.Fail:
-                break;
-
-            default: throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);
+            Debug.Log("<color=orange> Current game state: " + CurrentState + " </color>");
+            OnGameStateChanged?.Invoke(gameState);
         }
 
-        Debug.Log("<color=orange> Current game state: " + CurrentState + " </color>");
-        OnGameStateChanged?.Invoke(gameState);
-    }
-
-    private void Start()
-    {
-        UpdateGameState(GameState.WaitToStart);
+        private void Start()
+        {
+            UpdateGameState(GameState.WaitToStart);
+        }
     }
 }
