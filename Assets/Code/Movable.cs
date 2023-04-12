@@ -5,15 +5,41 @@ namespace TZ_24PLAY
 {
     public class Movable : MonoBehaviour, IMovable
     {
+        [SerializeField] private Vector3 _randomSpawnRange;
+        [SerializeField] private bool _moveOnStart = true;
+        [SerializeField] private float _replaceOnZ;
+
         private MovableConfig _movableConfig;
         private Tween _moveTween;
         private float _endPointZ;
         private float _speed;
+       [SerializeField] private Transform _spawnPos;
 
         [Inject]
         private void Construct(MovableConfig gameConfig)
         {
             _movableConfig = gameConfig;
+        }
+
+        private void Start()
+        {
+            Init();
+        }
+
+        public void Replace()
+        {
+            this.transform.position = new Vector3(
+                _spawnPos.position.x + UnityEngine.Random.Range(-_randomSpawnRange.x, _randomSpawnRange.x),
+                _spawnPos.position.y + UnityEngine.Random.Range(-_randomSpawnRange.y, _randomSpawnRange.y),
+                _spawnPos.position.z + UnityEngine.Random.Range(-_randomSpawnRange.z, _randomSpawnRange.z));
+        }
+
+        public void Restart()
+        {
+            //_moveTween.Restart();
+            Stop();
+            Replace();
+            Move();
         }
 
         public void Move()
@@ -27,9 +53,10 @@ namespace TZ_24PLAY
             _moveTween?.Kill();
         }
 
-        private void Start()
+        private void FixedUpdate()
         {
-            Init();
+            if (this.transform.position.z < _replaceOnZ)
+                Restart();
         }
 
         private void Init()
@@ -53,7 +80,8 @@ namespace TZ_24PLAY
             switch (gameState)
             {
                 case GameState.Play:
-                    Move();
+                    if (_moveOnStart)
+                        Move();
                     break;
 
                 default:

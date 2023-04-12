@@ -17,7 +17,6 @@ namespace TZ_24PLAY
             _stackingManager = stackingManager;
         }
 
-
         private void Start()
         {
             _stackingManager.OnNewStackable += OnNewStackableAddedHandler;
