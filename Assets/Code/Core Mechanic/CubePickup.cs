@@ -14,6 +14,9 @@ namespace TZ_24PLAY
         private Movable _movable;
         private StackingManager _stackingManager;
         private GameStateManager _gameStateManager;
+        private bool _isWallCollisionAvaible = true;
+
+        private const float WALL_COLLISION_INVOKE_DELAY = 2f;
 
         [Inject]
         private void Construct(StackingManager stackingManager, GameStateManager gameStateManager)
@@ -45,17 +48,38 @@ namespace TZ_24PLAY
         {
             if (collision.gameObject.TryGetComponent(out CubePickup cubePickup) && IsMainCube)
             {
-                Debug.Log(gameObject.name + " " + collision.gameObject.name);
                 _stackingManager.Add(cubePickup);
                 cubePickup.StopMove();
             }
 
             if (collision.gameObject.TryGetComponent(out CubeWall cubeWall))
             {
-                IsMainCube = false;
-                _stackingManager.Remove(this);
-                StartMove();
+                OnWallCollision();
             }
+        }
+
+        private void OnWallCollision()
+        {
+            if (_isWallCollisionAvaible == false) return;
+            StartCoroutine(OnWallCollisionCooldown());
+
+
+            StartMove();
+
+            if (IsMainCube)
+                _stackingManager.ApplyStackPosition();
+
+            IsMainCube = false;
+            _stackingManager.Remove(this);
+
+            Handheld.Vibrate();
+        }
+
+        IEnumerator OnWallCollisionCooldown()
+        {
+            yield return new WaitForSeconds(WALL_COLLISION_INVOKE_DELAY);
+
+            _isWallCollisionAvaible = true;
         }
     }
 }

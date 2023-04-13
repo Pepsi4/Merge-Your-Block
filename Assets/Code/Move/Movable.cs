@@ -13,7 +13,7 @@ namespace TZ_24PLAY
         private Tween _moveTween;
         private float _endPointZ;
         private float _speed;
-       [SerializeField] private Transform _spawnPos;
+        [SerializeField] private Transform _spawnPos;
 
         [Inject]
         private void Construct(MovableConfig gameConfig)
@@ -36,7 +36,6 @@ namespace TZ_24PLAY
 
         public void Restart()
         {
-            //_moveTween.Restart();
             Stop();
             Replace();
             Move();
@@ -44,13 +43,15 @@ namespace TZ_24PLAY
 
         public void Move()
         {
-            _moveTween = this.transform.DOMoveZ(_endPointZ, _speed).SetSpeedBased(true);
+            Stop();
+
+            _moveTween = this.transform.DOMoveZ(_endPointZ, _speed).SetSpeedBased(true).SetEase(Ease.Linear);
             _moveTween.Play();
         }
 
         public void Stop()
         {
-            _moveTween?.Kill();
+            _moveTween.Kill();
         }
 
         private void FixedUpdate()

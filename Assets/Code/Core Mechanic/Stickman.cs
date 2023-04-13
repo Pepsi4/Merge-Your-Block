@@ -20,6 +20,7 @@ namespace TZ_24PLAY
         private void Start()
         {
             _stackingManager.OnNewStackable += OnNewStackableAddedHandler;
+            _stackingManager.SetStickman(this);
             _animator = this.GetComponent<Animator>();
         }
 
