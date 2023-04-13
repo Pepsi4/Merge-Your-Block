@@ -23,7 +23,7 @@ namespace TZ_24PLAY
         private void Start()
         {
             if (IsMainCube)
-                _stackingManager.Add(this.GetComponent<CubePickup>());
+                _stackingManager.Add(this);
 
             _movable = GetComponent<Movable>();
         }
