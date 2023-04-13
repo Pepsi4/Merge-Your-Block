@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GameConfigInstaller
   m_EditorClassIdentifier: 
   _movableConfig:
-    Speed: 3
+    Speed: 5
     EndPointZ: -50

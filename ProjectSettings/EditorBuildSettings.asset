@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Plugins/Pools/Demo/Scenes/Demo.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/ExtraAssets/Scenes/GameScene.unity
+    guid: 30125978d7feeb04ebe37ab492379149
   m_configObjects: {}

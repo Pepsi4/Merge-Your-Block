@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43f9680895be1449a7cb6ba561a3d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _randomSpawnRange: {x: 0, y: 0, z: 0}
+  _randomSpawnRange: {x: 2, y: 0, z: 1.5}
   _moveOnStart: 1
   _replaceOnZ: 0
   _spawnPos: {fileID: 0}
