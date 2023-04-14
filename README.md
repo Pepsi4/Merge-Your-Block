@@ -7,12 +7,12 @@ https://user-images.githubusercontent.com/10260469/231806037-b28be3b6-e997-44d0-
 
 >##  How much total amount of time have you worked in Unity and C#?
 
-5+ years. But I started to study hard ~2 years ago.
+5+ years. Howerwer I started to study hard ~2 years ago.
 
 <br>
 
 >## How did you specifically learn Unity/C#?
-Mostly — QDD (Qustion-Driven Development). Also I have been consuming a lot of content on youtube. 
+Mostly — QDD (Question-Driven Development). Also I have been consuming a lot of content on YouTube. 
 Some of my favorites:
 
 - [K-Syndicate](https://www.youtube.com/KSyndicate) (Ukraine)
