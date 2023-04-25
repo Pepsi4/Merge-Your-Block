@@ -7,7 +7,7 @@ https://user-images.githubusercontent.com/10260469/231806037-b28be3b6-e997-44d0-
 
 >##  How much total amount of time have you worked in Unity and C#?
 
-5+ years. Howerwer I started to study hard ~2 years ago.
+5+ years. However I started to study hard ~2 years ago.
 
 <br>
 
